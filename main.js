@@ -1,7 +1,10 @@
+// Use id 0 by default
 var id = 0;
+var baseUrl = "http://localhost:8080/MarkovChain";
 
 $(document).ready(function() {
-    $.get("http://localhost:8080/MarkovChain/id", function(data) {
+    // Try to get a new id for this session
+    $.get(baseUrl + "/id", function(data) {
         id = data;
     });
     
@@ -11,13 +14,13 @@ $(document).ready(function() {
             id: id,
             str: text
         }
-        $.post("http://localhost:8080/MarkovChain/Chain", data, function(data) {
+        $.post(baseUrl + "/Chain", data, function(data) {
            console.log(data); 
         });
     });
 
     $("#generate").click(function() {
-        $.get("http://localhost:8080/MarkovChain/Chain?id=" + id + "&numWords=100", function(data) {
+        $.get(baseUrl + "/Chain?id=" + id + "&numWords=100", function(data) {
             $("#genText").val(data);
         })
     });
