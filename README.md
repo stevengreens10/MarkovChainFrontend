@@ -1,2 +1,2 @@
 # MarkovChainFrontend
-Front-end to go interface with my Java Markov chain server
+Front-end to interface with my Java Markov chain server
